@@ -1,0 +1,132 @@
+From bb29dd64c7bb6ebd69b90ac5b600f89094a08009 Mon Sep 17 00:00:00 2001
+From: NickAc <32451103+NickAcPT@users.noreply.github.com>
+Date: Sat, 15 Aug 2020 22:23:34 +0100
+Subject: [PATCH] 2.0.12
+
+---
+ Resources/ResourceListener.js | 34 ++++++++++++++++++++++++++++++++++
+ SSEGuiManager.js              |  3 +++
+ SSELocalStorage.js            |  5 ++++-
+ SpigotSearchEngine.css        |  3 +++
+ manifest.json                 |  4 +++-
+ 5 files changed, 47 insertions(+), 2 deletions(-)
+
+diff --git a/Resources/ResourceListener.js b/Resources/ResourceListener.js
+index c38f94b..1b96600 100644
+--- a/Resources/ResourceListener.js
++++ b/Resources/ResourceListener.js
+@@ -184,6 +184,21 @@ class ResourceListener {
+             return true;
+           }
+           break;
++          case "1.16":
++            if (SSELocalStorag.getBoolean("Version_v1_16")) {
++              return true;
++            }
++            break;
++          case "1.15":
++            if (SSELocalStorag.getBoolean("Version_v1_15")) {
++              return true;
++            }
++            break;
++          case "1.14":
++            if (SSELocalStorag.getBoolean("Version_v1_14")) {
++              return true;
++            }
++            break;
+           case "1.13":
+             if (SSELocalStorag.getBoolean("Version_v1_13")) {
+               return true;
+@@ -412,6 +427,25 @@ class ResourceListener {
+      .catch(function(err) {
+        console.log('[SpigotMCSearchEngine] RandomPlugin - Fetching Error: ', err);
+      });
++
++    /* CSP
++    
++    let divSection = document.createElement("div");
++    divSection.classList.add('section');
++    divSection.innerHTML = '<h2 class="MyFeaturedResourcesTextHeading"><a href="https://goo.gl/BbtCLe" class="username">ChristmasSurprisePlus - From the Developer of the SpigotSearchEngine Extension! :)</a></h2><a href="https://goo.gl/BbtCLe"><img src="https://i.imgur.com/igh1L7W.png" style="width:100%" alt="ChristmasSurprisePlus"></a><div class="MyFeaturedResourcesListPlacholder"></div>';
++    divActionFilterRow.parentNode.insertBefore(divSection, divActionFilterRow.nextSibling);*/
++
++
++
++    /* Halloween
++
++    let rndNr = Math.floor((Math.random() * 5) + 1);
++    let imgURL = 'https://fof1092.de/Plugins/SSE/mhp_' + rndNr + '.png';
++
++    let divSection = document.createElement("div");
++    divSection.classList.add('section');
++    divSection.innerHTML = '<h2 class="MyFeaturedResourcesTextHeading"><a href="https://goo.gl/BbtCLe" class="username">MysteriousHalloweenPlus - From the Developer of the SpigotSearchEngine Extension! :)</a></h2><a href="https://www.spigotmc.org/resources/47648/"><img src="' + imgURL + '" style="width:100%" alt="ChristmasSurprisePlus"></a><div class="MyFeaturedResourcesListPlacholder"></div>';
++    divActionFilterRow.parentNode.insertBefore(divSection, divActionFilterRow.nextSibling);*/
+   }
+ 
+ 
+diff --git a/SSEGuiManager.js b/SSEGuiManager.js
+index 3eeac34..077a830 100644
+--- a/SSEGuiManager.js
++++ b/SSEGuiManager.js
+@@ -255,6 +255,9 @@ class SSEGuiManager {
+ 
+     let types = [
+       { type: 'Version_Unknown', text: ' Unknown' },
++      { type: 'Version_v1_16', text: ' 1.16' },
++      { type: 'Version_v1_15', text: ' 1.15' },
++      { type: 'Version_v1_14', text: ' 1.14' },
+       { type: 'Version_v1_13', text: ' 1.13' },
+       { type: 'Version_v1_12', text: ' 1.12' },
+       { type: 'Version_v1_11', text: ' 1.11' },
+diff --git a/SSELocalStorage.js b/SSELocalStorage.js
+index 465913d..23152ab 100644
+--- a/SSELocalStorage.js
++++ b/SSELocalStorage.js
+@@ -3,7 +3,7 @@
+   The SSElocalStorage.js is setting up at the first use
+ */
+ 
+-let SSEVersion = "2.0.6";
++let SSEVersion = "2.0.12";
+ 
+ class SSELocalStorag {
+ 
+@@ -48,6 +48,9 @@ let types = [
+   { type: 'Version_v1_11', value: true },
+   { type: 'Version_v1_12', value: true },
+   { type: 'Version_v1_13', value: true },
++  { type: 'Version_v1_14', value: true },
++  { type: 'Version_v1_15', value: true },
++  { type: 'Version_v1_16', value: true },
+   { type: 'Version_Unknown', value: true },
+ 
+   { type: 'SearchOnPluginName', value: true },
+diff --git a/SpigotSearchEngine.css b/SpigotSearchEngine.css
+index c983c2c..d0eb229 100644
+--- a/SpigotSearchEngine.css
++++ b/SpigotSearchEngine.css
+@@ -1,3 +1,6 @@
++
++
++
+ /* infoBox */
+ 
+ .infoBox {
+diff --git a/manifest.json b/manifest.json
+index 4f6856a..bbace0c 100644
+--- a/manifest.json
++++ b/manifest.json
+@@ -1,8 +1,10 @@
+ {
++"update_url": "https://clients2.google.com/service/update2/crx",
++
+   "manifest_version": 2,
+ 
+   "name": "SpigotSearchEngine",
+-  "version": "2.0.6",
++  "version": "2.0.12",
+   "description": "SpigotMC Search Engine",
+ 
+   "icons":
+-- 
+2.27.0.windows.1
+

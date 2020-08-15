@@ -1,0 +1,23 @@
+From e52fbe3bbb64d7788581fa7a2b1caaea34d1d12d Mon Sep 17 00:00:00 2001
+From: NickAc <32451103+NickAcPT@users.noreply.github.com>
+Date: Sat, 15 Aug 2020 23:46:05 +0100
+Subject: [PATCH 2/2] Remove chrome update URL
+
+---
+ manifest.json | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/manifest.json b/manifest.json
+index 28e52ef..7aaa0d1 100644
+--- a/manifest.json
++++ b/manifest.json
+@@ -1,6 +1,4 @@
+ {
+-"update_url": "https://clients2.google.com/service/update2/crx",
+-
+   "manifest_version": 2,
+ 
+   "name": "SpigotSearchEngine",
+-- 
+2.27.0.windows.1
+

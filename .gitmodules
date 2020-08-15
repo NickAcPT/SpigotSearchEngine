@@ -1,3 +1,4 @@
 [submodule "source"]
 	path = source
 	url = https://github.com/fof1092/SpigotSearchEngine
+	ignore = all
